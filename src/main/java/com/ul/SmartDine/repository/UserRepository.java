@@ -29,13 +29,13 @@ public interface UserRepository extends JpaRepository<User, UUID> {
 
     Page<User> findAllByStatus(UserStatus status, Pageable pageable);
 
-    @Query("SELECT u FROM user u WHERE u.email=:email AND u.deletedAt IS NULL")
+    @Query("SELECT u FROM User u WHERE u.email=:email AND u.deletedAt IS NULL")
     Optional<User> findActiveByEmail(@Param("email") String email);
 
     @Modifying
-    @Query("UPDATE user u SET u.lastLoginAt=:loginAt WHERE u.id=:userId")
+    @Query("UPDATE User u SET u.lastLoginAt=:loginAt WHERE u.id=:userId")
     Optional<User> findActiveByEmail(@Param("userId") UUID userId, @Param("loginAt") LocalDateTime loginAt);
 
-    @Query("SELECT COUNT(u) FROM user u WHERE u.createdAt>=:since")
+    @Query("SELECT COUNT(u) FROM User u WHERE u.createdAt>=:since")
     long countNewUserSince(@Param("since") LocalDateTime since);
 }
