@@ -1,10 +1,10 @@
 package com.ul.SmartDine.entity;
 
 import com.ul.SmartDine.entity.enums.RoleName;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalTime;
@@ -18,9 +18,18 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Builder
 public class Role {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "name", nullable = false, unique = true)
     private RoleName name;
+    @Column(name = "description", length = 255)
     private String description;
+    @CreatedDate
+    @Column(name = "created_at", nullable = false, updatable = false)
     private LocalTime createdAt;
+    @LastModifiedDate
+    @Column(name = "updated_at", nullable = false)
     private LocalTime updatedAt;
 }
