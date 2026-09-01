@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
 
 @Configuration
-@EnableConfigurationProperties(KeycloakConfig.class)
+@EnableConfigurationProperties(KeycloakConfig.KeycloakProperties.class)
 public class KeycloakConfig {
     @Bean
     public RestClient keycloakRestClient(KeycloakProperties properties) {
