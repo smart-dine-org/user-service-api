@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class GithubLoginRequestDto {
+public class GitHubLoginRequestDto {
     @NotBlank(message = "Github Authentication Code is required!")
     private String code;
 }

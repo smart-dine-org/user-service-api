@@ -8,5 +8,5 @@ import java.util.UUID;
 public interface UserService {
     UserResponseDto getProfile(UUID userId);
     UserResponseDto updateProfile(UUID userId, UpdateProfileRequestDto dto);
-    UserResponseDto deleteAccount(UUID userId);
+    void deleteAccount(UUID userId);
 }

@@ -8,7 +8,7 @@ public interface AuthService {
     void signup(SignupRequestDto dto);
     AuthResponseDto login(LoginRequestDto dto);
     AuthResponseDto loginWithGoogle(GoogleLoginRequestDto dto);
-    AuthResponseDto loginWithGithub(GithubLoginRequestDto dto);
+    AuthResponseDto loginWithGitHub(GitHubLoginRequestDto dto);
     TokenRefreshResponseDto refreshToken(TokenRefreshRequestDto dto);
     void logout(String refreshToken);
 }

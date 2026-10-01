@@ -4,6 +4,6 @@ import com.ul.SmartDine.dtos.req.OtpVerifyRequestDto;
 
 public interface OtpService {
     void sendOtp(String email);
-    void verifyOtp(OtpVerifyRequestDto dto);
+    boolean verifyOtp(OtpVerifyRequestDto dto);
     void validateOtp(String email);
 }
